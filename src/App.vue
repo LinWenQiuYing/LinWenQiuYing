@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view id="content"></router-view>
     <main-footer></main-footer>
   </div>
 </template>
@@ -18,4 +18,7 @@ export default {
 
 <style lang="scss" scoped>
 @import url('assets/css/base.css');
+#content {
+  margin-bottom: 50px;
+}
 </style>

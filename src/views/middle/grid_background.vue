@@ -16,7 +16,6 @@
 </template>
 <script>
 import { Graph } from '@antv/x6'
-import { Shape } from '@antv/x6'
 
 export default {
   name: "Grid",
@@ -27,14 +26,13 @@ export default {
   },
   mounted() {
     this.createGraph();
-    // this.createCanvas();
   },
   methods: {
     createGraph() {
       this.graph = new Graph({
         container: document.getElementById("graph3"),
-        width: 400,
-        height: 400,
+        width: 100,
+        height: 100,
         background: {
           // 默认值为 false 表示没有（透明）背景
           color: "#fffbe6", // 设置画布背景颜色
@@ -91,9 +89,26 @@ export default {
       // 1.设置背景颜色
       this.graph.drawBackground({
         color: '#f5f5f5',
+        image: '../../assets/img/logo.png',
+        position: {
+          x: 100,
+          y: 100,
+        }, // 默认'center'
+        size: '100 100', // 默认'auto auto'
+        repeat: 'watermark', // 支持所有 CSS background-repeat 属性的取值，默认为 'no-repeat'
+        // 另外，还支持以下几个预定义值：
+        // 'watermark' 水印效果。
+        // 'flip-x' 水平翻转背景图片。
+        // 'flip-y' 垂直翻转背景图片。
+        // 'flip-xy' 水平和垂直翻转背景图片。
+        opacity: 1,
+        quality: 1,
+        angle: 20, // 仅当 repeat 为 'watermark' 时有效，默认值为 20
       })
-      // 2.设置背景图片
-
+      // 2.销毁背景
+      // this.graph.clearBackground()
+      // 3.更新背景
+      // this.graph.updateBackground()
     },
   },
 }

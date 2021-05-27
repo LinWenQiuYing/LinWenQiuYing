@@ -20,6 +20,7 @@ export default {
   mounted() {
     this.init();
     this.createGraph();
+    this.createCanvas();
     // this.downloadPng();
     // this.downloadSvg();
   },
@@ -123,71 +124,8 @@ export default {
           modifiers: "shift", // 设置修饰键后需要按下修饰键并点击鼠标才能触发画布拖拽
         },
       });
-
-      // const data = {
-      //   // 节点
-      //   nodes: [
-      //     {
-      //       id: 'node1',
-      //       x: 40,
-      //       y: 40,
-      //       width: 100,
-      //       height: 40,
-      //       attrs: {
-      //         body: {
-      //           fill: '#2ECC71',
-      //           stroke: '#000',
-      //           strokeDasharray: '10,2',
-      //         },
-      //         label: {
-      //           text: 'Hello',
-      //           fill: '#333',
-      //           fontSize: 13,
-      //         }
-      //       }
-      //     },
-      //     {
-      //       id: 'node2',
-      //       x: 150,
-      //       y: 150,
-      //       width: 100,
-      //       height: 40,
-      //       attrs: {
-      //         body: {
-      //           fill: '#F39C12',
-      //           stroke: '#000',
-      //           rx: 16,
-      //           ry: 16,
-      //         },
-      //         label: {
-      //           text: 'World',
-      //           fill: '#333',
-      //           fontSize: 18,
-      //           fontWeight: 'bold',
-      //           fontVariant: 'small-caps',
-      //         },
-      //       },
-      //     },
-      //   ],
-      //   // 边
-      //   edges: [
-      //     {
-      //       source: "node1", // String，必须，起始节点 id
-      //       target: "node2", // String，必须，目标节点 id
-      //       shape: 'double-edge',
-      //       attrs: {
-      //         line: {
-      //           stroke: 'orange',
-      //         },
-      //       },
-      //     },
-      //   ],
-      // };
-
-      // this.graph.fromJSON(data);
-      // this.graph.centerContent(); // 画布内容中心与视口中心对齐
-      // this.graph.dispose(); // 画布的销毁以及资源的回收
-
+    },
+    createCanvas() {
       const rect1 = new Shape.Rect({
         // 内置节点
         // 内置节点构造函数与 shape 名称对应关系如下表
