@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 const Primary = () => import('@/views/primary/primary')
 const Middle = () => import('@/views/middle/middle')
+const Senior = () => import('@/views/senior/senior')
 
 // 1.安装插件
 Vue.use(Router)
@@ -21,12 +22,16 @@ const routes = [
     path: '/middle',
     component: Middle,
   },
+  {
+    path: '/senior',
+    component: Senior,
+  }
 ]
 
 // 3.创建路由实例
 const router = new Router({
   routes,
-  mode: 'history',
+  mode: 'hash',
 })
 
 // 4.导出路由

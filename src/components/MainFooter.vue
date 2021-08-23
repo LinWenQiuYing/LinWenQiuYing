@@ -22,6 +22,17 @@
         <div>middle</div>
       </template>
     </tab-bar-item>
+    <tab-bar-item path="/senior" activeColor="yellow">
+      <template v-slot:item-icon>
+        <img src="@/assets/img/tabbar/cart.png" alt="senior">
+      </template>
+      <template v-slot:item-icon-active>
+        <img src="@/assets/img/tabbar/cart-active.png" alt="senior">
+      </template>
+      <template v-slot:item-text>
+        <div>senior</div>
+      </template>
+    </tab-bar-item>
   </tab-bar>
 </template>
 <script>

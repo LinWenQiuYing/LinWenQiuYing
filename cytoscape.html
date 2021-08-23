@@ -1,0 +1,126 @@
+<!DOCTYPE>
+
+<html>
+<head>
+  <title>cytoscape demo</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script src="../js/cytoscape-3.16.5.min.js"></script>
+
+  <style>
+    body {
+      font-family: helvetica neue, helvetica, liberation sans, arial, sans-serif;
+      font-size: 14px
+    }
+    #cy {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+    }
+    h1 {
+      opacity: 0.5;
+      font-size: 1em;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var cy = window.cy = cytoscape({
+        container: document.getElementById('cy'),
+        style: [
+          {
+            selector: 'node',
+            css: {
+              'shape': 'rectangle',
+              'width': '100',
+              'height': '100',
+              'content': 'data(label)',
+              'background-color': "yellow",
+              "text-background-color": "blue",
+              'text-valign': 'top',
+              'text-halign': 'center',
+              // 'text-justification': "right",
+              'text-margin-y': -10,
+              // 'line-height': "100",
+
+              "text-wrap": "wrap",
+              'text-max-width': '100',
+              'text-overflow-wrap': "anywhere",
+            }
+          },
+
+          {
+            selector: 'edge',
+            css: {
+              'curve-style': 'bezier',
+              'target-arrow-shape': 'triangle',
+              'content': 'data(id)',
+            }
+          },
+
+          {
+            selector: ':selected',
+            css: {
+              'background-color': 'black'
+            }
+          },
+        ],
+        elements: {
+          nodes: [
+            { 
+              data: { 
+                id: 'a',
+                label: "test1test1test1test1test1test1test1", // " + '\u200b' + "
+              }
+            },
+            { 
+              data: { 
+                id: 'b',
+                label: "test2test2test2test2test2test2test2", // " + '\n' + "
+              }
+            }
+          ],
+          edges: [
+            { data: 
+              { 
+                id: 'ab', 
+                source: 'a', 
+                target: 'b' 
+              } 
+            }
+          ]
+        },
+        layout: {
+          name: 'grid'
+        }
+      });
+
+      cy.on('keydowm', 'node', function(evt){
+        var node = evt.target;
+        const nodeData = {
+          data: { 
+            id: 'c',
+            label: "test3",
+          },
+          selected: true
+        }
+        console.log( 'cxttapped', node, cy );
+        cy.add(nodeData);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        console.log("e", e);
+      })
+    });
+  </script>
+</head>
+
+<body>
+  <h1>cytoscape demo</h1>
+  <div id="cy"></div>
+</body>
+
+</html>

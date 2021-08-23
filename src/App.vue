@@ -18,7 +18,13 @@ export default {
 
 <style lang="scss" scoped>
 @import url('assets/css/base.css');
-#content {
-  margin-bottom: 50px;
+#app {
+  width: 1500px;
+  height: 800px;
+  #content {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 50px;
+  }
 }
 </style>

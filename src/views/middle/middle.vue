@@ -2,6 +2,7 @@
   <div>
     <h2>middle</h2>
     <div id="graph1"></div>
+    <div id="map1"></div>
     <port/>
     <grid-background/>
     <clipboard-snapline/>
@@ -41,6 +42,11 @@ export default {
         height: 400,
         background: {
           color: "#fffbe6", // 设置画布背景颜色
+        },
+        scroller: true,
+        minimap: {
+          enabled: true,
+          container: document.getElementById("map1"),
         },
         grid: {
           size: 10, // 网格大小 10px
